@@ -1,0 +1,16 @@
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 8px 15px;
+    text-align: center;
+}
+
+/* Para que la tabla no tenga bordes dobles en las orillas */
+td:first-child { border-left: none; }
+td:last-child { border-right: none; }
