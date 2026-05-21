@@ -1,16 +1,142 @@
+/* Variables de Diseño */
+:root {
+    --bg-global: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary-gradient: linear-gradient(135deg, #38bdf8, #0369a1);
+    --primary-hover: linear-gradient(135deg, #7dd3fc, #0284c7);
+    --border-color: #334155;
+    --accent: #38bdf8;
+}
+
+/* Estilos Generales */
+body {
+    background-color: var(--bg-global);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta Principal */
+.card {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* Grupo de Entrada */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+label {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+input[type="number"] {
+    background-color: var(--bg-global);
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    width: 80%;
+    max-width: 200px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+button {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 85%;
+    max-width: 236px;
+    transition: transform 0.1s ease, filter 0.2s ease;
+    box-shadow: 0 4px 12px rgba(3, 105, 161, 0.3);
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Contenedor e Interfaz de la Tabla */
+#contenedorTabla {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
 table {
     border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    background-color: var(--bg-global);
+    border-radius: 10px;
+    overflow: hidden; /* Corta esquinas para que se vea el border-radius */
+    border: 1px solid var(--border-color);
 }
 
 td {
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
-    padding: 8px 15px;
-    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 16px;
+    font-size: 1.05rem;
+    color: var(--text-main);
 }
 
-/* Para que la tabla no tenga bordes dobles en las orillas */
-td:first-child { border-left: none; }
-td:last-child { border-right: none; }
+/* Efecto cebra para las filas de la tabla */
+tr:nth-child(even) {
+    background-color: rgba(51, 65, 85, 0.3);
+}
+
+/* Eliminar borde inferior de la última fila */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Resaltar la columna del resultado (si tu JS genera más columnas) */
+td:last-child {
+    font-weight: bold;
+    color: var(--accent);
+}
